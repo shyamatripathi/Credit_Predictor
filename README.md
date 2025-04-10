@@ -19,7 +19,7 @@ This is a Django-based web application that predicts a user's **credit score** b
 - **Frontend**: HTML, CSS (basic styling)
 - **Backend**: Django (Python)
 - **Machine Learning**: Scikit-learn, NumPy, joblib
-- **PDF Generation**:  FPDF (based on your `utils/pdf_generator.py`)
+- **PDF Generation**:  FPDF
 - **Deployment Ready**
 
 ---
