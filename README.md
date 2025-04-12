@@ -20,7 +20,7 @@ A Django-based web app that predicts a user's **credit score** based on financia
 - **ML**: Scikit-learn, NumPy, joblib
 - **PDF Generation**: FPDF
 - **Frontend**: HTML, CSS
-- **API Testing**: Postman (optional)
+- **API Testing**: Postman 
 
 ---
 
