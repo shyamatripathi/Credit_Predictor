@@ -13,4 +13,4 @@ echo "Running Django migrations..."
 python manage.py migrate
 
 echo "Starting Django app with Gunicorn..."
-gunicorn credit_predictor.wsgi:application --bind 0.0.0.0:$PORT
+gunicorn credit_predictor.wsgi:application --bind 0.0.0.0:8000
