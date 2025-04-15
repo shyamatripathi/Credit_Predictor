@@ -20,6 +20,25 @@ def home(request):
     values = {}  # Ensure values is always a dictionary
     return render(request, 'home.html', {'fields': FEATURES_USED, 'values': values})
 
+import os
+import joblib
+import urllib.request
+import tempfile
+
+def download_model_from_google_drive():
+    # File ID extracted from your Google Drive link
+    file_id = "1SGgdsz_eDKrdD4qw5YlQXQigwrS6frim"
+    download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+    
+    # Download to a temporary file
+    with urllib.request.urlopen(download_url) as response:
+        with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+            tmp_file.write(response.read())
+            return tmp_file.name
+
+# Download and load the model
+model_path = download_model_from_google_drive()
+model = joblib.load(model_path)
 
 def predict_credit_score(request):
     if request.method == "POST":
