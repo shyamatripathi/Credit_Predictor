@@ -2,6 +2,7 @@ from django.shortcuts import render
 import joblib
 import numpy as np
 import os
+from django.conf import settings
 
 # Load model and scaler
 model_path = os.path.join(settings.BASE_DIR, 'predictor', 'credit_score_model.pkl')
