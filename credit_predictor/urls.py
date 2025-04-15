@@ -28,8 +28,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('credit_predictor.urls', namespace='credit_predictor')),
-    path('predictor/', include('predictor.urls', namespace='predictor')),
+    path('', include('predictor.urls', namespace='predictor')),  # home & all routes
 ]
+
 
 
