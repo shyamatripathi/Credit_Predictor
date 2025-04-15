@@ -23,13 +23,13 @@ Including another URLconf
 #     path('admin/', admin.site.urls),
 #     path('', include('predictor.urls')),
 # ]
-from django.urls import path
-from . import views
-
-app_name = 'credit_predictor'  # ✅ Required for URL namespacing
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('predict/', views.predict, name='predict'),
+    path('admin/', admin.site.urls),
+    path('', include('credit_predictor.urls', namespace='credit_predictor')),
+    path('predictor/', include('predictor.urls', namespace='predictor')),
 ]
+
 
