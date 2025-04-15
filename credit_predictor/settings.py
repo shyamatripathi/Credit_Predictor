@@ -23,13 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5mmzjoyhrjo!jfirq4scha)!8)d0l+(p55&f%pu#4jn0juzxp8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    'creditpredictor-production.up.railway.app',
-    '127.0.0.1', 
-    'localhost', 
-]
+ALLOWED_HOSTS = ['creditpredictor-production.up.railway.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
