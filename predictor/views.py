@@ -3,7 +3,10 @@ import joblib
 import numpy as np
 
 # Load model and scaler
-model = joblib.load('C:/Users/shyam/OneDrive/Desktop/dsProject1/credit_predictor/predictor/credit_score_model.pkl')
+model_path = os.path.join(settings.BASE_DIR, 'predictor', 'credit_score_model.pkl')
+model = joblib.load(model_path)
+
+#model = joblib.load('C:/Users/shyam/OneDrive/Desktop/dsProject1/credit_predictor/predictor/credit_score_model.pkl')
 scaler = joblib.load('C:/Users/shyam/OneDrive/Desktop/dsProject1/credit_predictor/predictor/scaler.pkl')
 
 # Only include features used in training
