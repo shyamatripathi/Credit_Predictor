@@ -25,9 +25,11 @@ SECRET_KEY = 'django-insecure-5mmzjoyhrjo!jfirq4scha)!8)d0l+(p55&f%pu#4jn0juzxp8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost',
-    '127.0.0.1',
-    'thorough-spontaneity-production.up.railway.app']
+ALLOWED_HOSTS = [
+    'creditpredictor-production.up.railway.app',
+    '127.0.0.1', 
+    'localhost', 
+]
 
 
 # Application definition
