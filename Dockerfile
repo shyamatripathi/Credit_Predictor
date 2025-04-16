@@ -3,17 +3,22 @@ FROM python:3.9-slim
 # Set working directory
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y git
+# Install system dependencies (git is needed if you install packages from git)
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy and install Python dependencies
+# Copy only requirements.txt first (for better caching)
 COPY requirements.txt .
-RUN pip install pip install -r requirements.txt
 
-# Copy all files
+# Install Python dependencies (without root user warnings)
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
 COPY . .
 
-# Make sure start.sh is executable
+# Make start.sh executable
 RUN chmod +x start.sh
 
 # Expose the app port
