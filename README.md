@@ -1,31 +1,31 @@
-# 💳 Credit Score Predictor with PDF Report Generator
+# Credit Score Predictor with PDF Report Generator
 
 A Django-based web app that predicts a user's **credit score** based on financial inputs and generates a **PDF report** of the results.
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔍 Predicts credit score using a trained ML model (Scikit-learn)
-- 🧾 Generates downloadable PDF report with user inputs and predictions
-- 📋 Validates financial data input before processing
-- 📡 Offers an optional JSON-based API endpoint for programmatic access
-- 📊 Visualizes inputs with interactive charts using Chart.js
-- 🖥️ Clean, responsive, and single-page web UI
+-  Predicts credit score using a trained ML model (Scikit-learn)
+-  Generates downloadable PDF report with user inputs and predictions
+-  Validates financial data input before processing
+-  Offers an optional JSON-based API endpoint for programmatic access
+-  Visualizes inputs with interactive charts using Chart.js
+-  Clean, responsive, and single-page web UI
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 - **Backend**: Django (Python)
 - **Machine Learning**: Scikit-learn, NumPy, Joblib
 - **PDF Generation**: FPDF
-- **Frontend**: HTML, CSS, JavaScript, Chart.js
+- **Frontend**: HTML, CSS, JavaScript
 - **API Testing**: Postman
 
 ---
 
-## 🚀 Quick Start (Local Setup)
+##  Quick Start (Local Setup)
 
 ```bash
 # 1. Clone this repo
