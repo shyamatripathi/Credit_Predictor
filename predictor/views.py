@@ -68,6 +68,39 @@ def predict_credit_score(request):
             })
     return home(request)
 
+from .utils.pdf_generator import generate_credit_score_pdf
+
+
+def download_pdf(request):
+    if request.method == 'POST':
+        # Extract data from the POST request
+        annual_income = request.POST.get('AnnualIncome')
+        monthly_salary = request.POST.get('MonthlyInhandSalary')
+        num_accounts = request.POST.get('NumBankAccounts')
+        debt = request.POST.get('OutstandingDebt')
+        ratio = request.POST.get('CreditUtilizationRatio')
+        predicted_score = request.POST.get('predicted_score')
+
+        # Organize the data into a dictionary
+        user_inputs = {
+            "Annual Income": annual_income,
+            "Monthly Inhand Salary": monthly_salary,
+            "Num Bank Accounts": num_accounts,
+            "Outstanding Debt": debt,
+            "Credit Utilization Ratio": ratio,
+        }
+
+        # Generate the PDF content
+        pdf_content = generate_credit_score_pdf(user_inputs, predicted_score)
+
+        # Create an HTTP response with the PDF content
+        response = HttpResponse(pdf_content, content_type='application/pdf')
+        response['Content-Disposition'] = 'attachment; filename="credit_score_report.pdf"'
+        return response
+    else:
+        # Handle cases where the request method is not POST
+        return HttpResponse("Invalid request method.", status=405)
+
 @api_view(['POST'])
 def predict_credit_score_api(request):
     try:
@@ -93,3 +126,4 @@ def predict_credit_score_api(request):
 
     except Exception as e:
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
