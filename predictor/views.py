@@ -6,6 +6,8 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.http import HttpResponse
+
 
 # Features used in training
 FEATURES_USED = [
@@ -73,13 +75,12 @@ from .utils.pdf_generator import generate_credit_score_pdf
 
 def download_pdf(request):
     if request.method == 'POST':
-        # Extract data from the POST request
-        annual_income = request.POST.get('AnnualIncome')
-        monthly_salary = request.POST.get('MonthlyInhandSalary')
-        num_accounts = request.POST.get('NumBankAccounts')
-        debt = request.POST.get('OutstandingDebt')
-        ratio = request.POST.get('CreditUtilizationRatio')
-        predicted_score = request.POST.get('predicted_score')
+        annual_income = request.POST.get('Annual_Income')
+        monthly_salary = request.POST.get('Monthly_Inhand_Salary')
+        num_accounts = request.POST.get('Num_Bank_Accounts')
+        debt = request.POST.get('Outstanding_Debt')
+        ratio = request.POST.get('Credit_Utilization_Ratio')
+        
 
         # Organize the data into a dictionary
         user_inputs = {
@@ -126,4 +127,5 @@ def predict_credit_score_api(request):
 
     except Exception as e:
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
